@@ -1,13 +1,15 @@
 <?php
-/*
+
 namespace app\modules\controllers;
-use app\models\Category;
-use app\models\Product;
-use yii\web\Controller;
+use app\modules\models\Product;
+use app\modules\models\Category;
 use Yii;
 use yii\data\Pagination;
 use crazyfd\qiniu\Qiniu;
+use yii\rest\Controller;
 use app\modules\controllers\CommonController;
+
+
 
 class ProductController extends CommonController
 {
@@ -24,6 +26,10 @@ class ProductController extends CommonController
 
     public function actionAdd()
     {
+
+
+     /*  var_dump($_FILES);
+        exit();*/
         $this->layout = "layout1";
         $model = new Product;
         $cate = new Category;
@@ -32,6 +38,7 @@ class ProductController extends CommonController
         if (Yii::$app->request->isPost) {
             $post = Yii::$app->request->post();
             $pics = $this->upload();
+            //如果没图片
             if (!$pics) {
                 $model->addError('cover', '封面不能为空');
             } else {
@@ -51,11 +58,14 @@ class ProductController extends CommonController
 
     private function upload()
     {
-        if ($_FILES['Product']['error']['cover'] > 0) {
+        set_time_limit(300);
+        //文件错误错误记录
+       if ($_FILES['Product']['error']['cover'] > 0) {
             return false;
         }
         $qiniu = new Qiniu(Product::AK, Product::SK, Product::DOMAIN, Product::BUCKET);
         $key = uniqid();
+
         $qiniu->uploadFile($_FILES['Product']['tmp_name']['cover'], $key);
         $cover = $qiniu->getLink($key);
         $pics = [];
@@ -162,4 +172,4 @@ class ProductController extends CommonController
 
 
 
-}*/
+}

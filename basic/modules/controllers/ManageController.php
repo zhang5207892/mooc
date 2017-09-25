@@ -9,7 +9,7 @@ use yii;
 /**
  * Default controller for the `admin` module
  */
-class ManageController extends Controller
+class ManageController extends CommonController
 {
     public function actionMailchangepass(){
         $this->layout=false;

@@ -9,7 +9,7 @@
 namespace app\modules\controllers;
 use yii\web\Controller;
 use app\models\Test;
-class PublicController extends  Controller
+class PublicController extends  CommonController
 {
     //不加载yii2布局
     //public $layout=false;

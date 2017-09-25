@@ -11,7 +11,7 @@ use yii;
 /**
  * Default controller for the `admin` module
  */
-class UserController extends Controller
+class UserController extends CommonController
 {
     public function actionUsers()
     {

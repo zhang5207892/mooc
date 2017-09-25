@@ -42,7 +42,7 @@
             <span class="icon-bar"></span>
         </button>
 
-        <a class="brand" href="index.html" style="font-weight:700;font-family:Microsoft Yahei">慕课商城 - 后台管理</a>
+        <a class="brand" href="<?php echo yii\helpers\Url::to(['/index/index']) ?>" style="font-weight:700;font-family:Microsoft Yahei">慕课商城 - 后台管理</a>
 
         <ul class="nav pull-right">
             <li class="hidden-phone">
@@ -135,8 +135,8 @@
                     <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a href="<?php echo yii\helpers\Url::to(['manage/changeemail']);?>">个人信息管理</a></li>
-                    <li><a href="<?php echo yii\helpers\Url::to(['manage/changepass']);?>">修改密码</a></li>
+                    <li><a href="<?php echo yii\helpers\Url::to(['manage/changeemail']) ?>">个人信息管理</a></li>
+                    <li><a href="<?php echo yii\helpers\Url::to(['manage/changepass']); ?>">修改密码</a></li>
                     <li><a href="#">订单管理</a></li>
                 </ul>
             </li>
@@ -163,7 +163,7 @@
                 <div class="arrow"></div>
                 <div class="arrow_border"></div>
             </div>
-            <a href="index.html">
+            <a href="<?php echo yii\helpers\Url::to(['default/index']) ?>">
                 <i class="icon-home"></i>
                 <span>后台首页</span>
             </a>
@@ -175,8 +175,8 @@
                 <i class="icon-chevron-down"></i>
             </a>
             <ul class="submenu">
-                <li><a href="<?php echo yii\helpers\Url::to(['manage/managers']);?>">管理员列表</a></li>
-                <li><a href="<?php echo yii\helpers\Url::to(['manage/reg']);?>">加入新管理员</a></li>
+                <li><a href="<?php echo yii\helpers\Url::to(['manage/managers']); ?>">管理员列表</a></li>
+                <li><a href="<?php echo yii\helpers\Url::to(['manage/reg']); ?>">加入新管理员</a></li>
             </ul>
         </li>
 
@@ -187,8 +187,8 @@
                 <i class="icon-chevron-down"></i>
             </a>
             <ul class="submenu">
-                <li><a href="<?php echo yii\helpers\Url::to(['user/users']);?>">用户列表</a></li>
-                <li><a href="<?php echo yii\helpers\Url::to(['user/reg']);?>">加入新用户</a></li>
+                <li><a href="<?php echo yii\helpers\Url::to(['user/users']); ?>">用户列表</a></li>
+                <li><a href="<?php echo yii\helpers\Url::to(['user/reg']); ?>">加入新用户</a></li>
             </ul>
         </li>
         <li>
@@ -229,7 +229,7 @@
 </div>
 <!-- end sidebar -->
 
-<?php echo $content ;?>
+<?php echo $content ; ?>
 
 
 <!-- scripts -->
@@ -363,14 +363,12 @@
     });
     $("#addpic").click(function(){
         var pic = $("#product-pics").clone();
-        pic.attr("style", "margin-left:120pxf");
+        pic.attr("style", "margin-left:120px");
         $("#product-pics").parent().append(pic);
     });
 
 </script>
 
-<?php $this->endBody() ?>
 </body>
 </html>
-<?php $this->endPage() ?>
 
